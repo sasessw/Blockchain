@@ -17,13 +17,15 @@ class data_transfers{};
 
 class Block{
 public:
-    Block(int index, string _before, data_transfers a) : dt(ctime(&now)), current(sha512(_before)),
-                                        before(_before){};
+    Block(int index, string _before, data_transfers a) : current(sha512(_before)), before(_before), big_Data(a){
+        time_t t;
+        dt = t;
+    };
 private:
     data_transfers big_Data;
     string before;
     string current;
-    char * dt;
+    string dt;
 
 };
 #endif //BLOCKCHAIN_BLOCK_H
