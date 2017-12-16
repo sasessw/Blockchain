@@ -11,21 +11,40 @@ using std::endl;
 
 #include <ctime>
 #include "sha512.h"
+#include <string>
+#include "myTime.h"
+
+
+
 
 class data_transfers{};
 
 
+
+
 class Block{
+
 public:
-    Block(int index, string _before, data_transfers a) : current(sha512(_before)), before(_before), big_Data(a){
-        time_t t;
-        dt = t;
+    Block() = delete;
+    
+    Block(int index, string _before) :  Index{index}, before(_before){
+        dt;
+        before = block_before->getSha();
+        data_transfers a;
+        big_Data{a};
     };
+
+    string getSha(){
+        return current;
+    }
+    
 private:
+    Block *block_before;
     data_transfers big_Data;
     string before;
     string current;
-    string dt;
+    myTime dt;
+    int Index;
 
 };
 #endif //BLOCKCHAIN_BLOCK_H
